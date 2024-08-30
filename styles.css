@@ -1062,3 +1062,14 @@ footer {
 #logo{
    width: 25%;
 }
+
+
+/* Remove o cursor de texto piscando ao clicar na página */
+body, input, textarea {
+    cursor: default;
+    user-select: none; /* Previne a seleção de texto */
+}
+
+input:focus, textarea:focus, button:focus {
+    outline: none; /* Remove o contorno padrão ao focar */
+}
