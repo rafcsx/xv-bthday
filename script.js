@@ -198,32 +198,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Recupera os comentários do Firebase e exibe-os
-    onValue(ref(database, 'recados-home'), function (snapshot) {
-        const recadosContainer = document.getElementById('recados-container');
-        recadosContainer.innerHTML = ''; // Limpa os comentários atuais
-
-        snapshot.forEach(function (childSnapshot) {
-            const recadoData = childSnapshot.val();
-            const recadoElement = document.createElement('div');
-            recadoElement.classList.add('recado');
-
-            recadoElement.innerHTML = `
-            
-            <div class="recado-balao">
-                <p>${recadoData.recado}</p>
-            </div>
-<br>
-            <div class="recado-nome">
-                <h3>${recadoData.nome}</h3>
-            </div>
-            <small>${new Date(recadoData.timestamp).toLocaleString()}</small>
-            
-        `;
-
-            recadosContainer.appendChild(recadoElement);
-        });
-    });
+   
 });
 
 document.addEventListener('DOMContentLoaded', function () {
