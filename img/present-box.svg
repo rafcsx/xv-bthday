@@ -1,5 +1,5 @@
-<svg width="240" height="580" viewBox="0 0 760 180" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <mask id="mask0_0_1" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="800" height="580">
+<svg width="240" height="180" viewBox="0 200 760 180" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <mask id="mask0_0_1" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="700" height="580">
     <rect width="800" height="580" fill="url(#pattern0_0_1)"/>
     </mask>
     <g mask="url(#mask0_0_1)">
