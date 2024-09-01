@@ -1015,26 +1015,30 @@ footer {
 
 /* Estilo do elemento #presentBox */
 #presentBox {
-    margin-top: -25%;
-    margin-bottom: -10%;
-    width: 30%;
-    align-items: center; /* Alinha o conteúdo verticalmente no centro */
-    justify-content: center; /* Alinha o conteúdo horizontalmente no centro */
-    animation: bounceZoom 4.2s infinite; /* Aplica a animação */
+    position: relative; /* Mantém o elemento no fluxo normal da página */
+    margin: 0 auto; /* Centraliza o elemento horizontalmente */
+    width: 340px; /* Define a largura */
+    height: 300px; /* Define a altura */
+    animation: bounceZoom 4.2s infinite; /* Mantém a animação */
+    overflow: hidden; /* Limita a área clicável do SVG */
+    margin-top: 50px; /* Ajusta o espaçamento superior para separação */
+    margin-bottom: 50px; /* Ajusta o espaçamento inferior para separação */
 }
+
+
 /* Estilos responsivos */
 @media (max-width: 768px) {
     #presentBox {
         width: 50%; /* Ajusta a largura no tablet e telas menores */
-        margin-top: -30%; /* Ajusta a margem superior para melhor centralização */
-        margin-bottom: -10%; /* Ajusta a margem inferior para melhor centralização */
+        margin-top: -20%; /* Ajusta a margem superior para melhor centralização */
+        margin-bottom: -5%; /* Ajusta a margem inferior para melhor centralização */
     }
 }
 
 @media (max-width: 480px) {
     #presentBox {
         width: 70%; /* Ajusta a largura no mobile */
-        margin-top: -50%; /* Ajusta a margem superior para melhor centralização */
+        margin-top: -20%; /* Ajusta a margem superior para melhor centralização */
         margin-bottom: -5%; /* Ajusta a margem inferior para melhor centralização */
     }
 }
