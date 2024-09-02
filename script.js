@@ -71,16 +71,9 @@ setInterval(() => {
 
     // Adicionar funcionalidade para a contagem regressiva
 function updateCountdown() {
-    // Configurar a data e hora do evento para o horário de Brasília (UTC-3)
     const eventDate = new Date('2024-10-11T22:00:00-03:00'); // Data e hora do evento
-    const now = new Date();
-
-    // Ajustar o horário atual para o mesmo fuso horário do evento
-    const localOffset = now.getTimezoneOffset() * 60000; // Diferença em milissegundos do UTC
-    const localNow = new Date(now.getTime() - localOffset); // Horário local ajustado
-
-    // Calcular a diferença entre a data do evento e o horário local
-    const timeDiff = eventDate - localNow;
+    const now = new Date(); // Data e hora atual
+    const timeDiff = eventDate - now;
 
     if (timeDiff <= 0) {
         document.querySelector('.countdown').innerHTML = "<h3>Evento Encerrado</h3>";
@@ -101,7 +94,6 @@ function updateCountdown() {
 // Atualizar a contagem regressiva a cada segundo
 updateCountdown();
 setInterval(updateCountdown, 1000);
-
 
     // Adicionar funcionalidade para controle de slides
     document.querySelector('.carousel-control.left').addEventListener('click', () => moveSlide(-1));
