@@ -70,29 +70,30 @@ setInterval(() => {
     showSlide(slideIndex);
 
     // Adicionar funcionalidade para a contagem regressiva
-    function updateCountdown() {
-        const eventDate = new Date('2024-10-11T22:00:00-03:00'); // Atualizado para 22:00 BRT (UTC-3)
-        const now = new Date();
-        const timeDiff = eventDate - now;
+function updateCountdown() {
+    const eventDate = new Date('2024-10-11T22:00:00-03:00'); // Data e hora do evento
+    const now = new Date();
+    const timeDiff = eventDate - now;
 
-        if (timeDiff < 0) {
-            document.querySelector('.countdown').innerHTML = "<h3>Evento Encerrado</h3>";
-            return;
-        }
-
-        const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
-
-        document.getElementById('days').textContent = days;
-        document.getElementById('hours').textContent = hours;
-        document.getElementById('minutes').textContent = minutes;
+    if (timeDiff <= 0) {
+        document.querySelector('.countdown').innerHTML = "<h3>Evento Encerrado</h3>";
+        return;
     }
 
-    // Atualizar a contagem regressiva a cada minuto
-    updateCountdown();
-    setInterval(updateCountdown, 60000);
+    const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
 
+    document.getElementById('days').textContent = days;
+    document.getElementById('hours').textContent = hours;
+    document.getElementById('minutes').textContent = minutes;
+    document.getElementById('seconds').textContent = seconds;
+}
+
+// Atualizar a contagem regressiva a cada segundo
+updateCountdown();
+setInterval(updateCountdown, 1000);
 
     // Adicionar funcionalidade para controle de slides
     document.querySelector('.carousel-control.left').addEventListener('click', () => moveSlide(-1));
