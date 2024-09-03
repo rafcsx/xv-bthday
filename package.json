@@ -1,0 +1,24 @@
+{
+  "name": "xvsophiajustino",
+  "version": "1.0.0",
+  "description": "Site para o domínio xvsophiajustino.com.br com várias páginas e subdomínios.",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run build:site",
+    "build:site": "webpack --mode production"  // Exemplo de comando de build, substitua conforme necessário
+  },
+  "dependencies": {
+    "webpack": "^5.0.0",                // Dependência de exemplo, ajuste conforme necessário
+    "webpack-cli": "^4.0.0",            // Dependência de exemplo, ajuste conforme necessário
+    "html-webpack-plugin": "^5.0.0"     // Dependência de exemplo, ajuste conforme necessário
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^4.0.0"     // Dependência de exemplo, ajuste conforme necessário
+  },
+  "keywords": [
+    "website",
+    "xvsophiajustino"
+  ],
+  "author": "Rafael Correia",
+  "license": "MIT"
+}
