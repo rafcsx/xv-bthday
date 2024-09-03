@@ -8,9 +8,9 @@
     "build:site": "webpack --mode production"  
   },
   "dependencies": {
-    "webpack": "^5.0.0",                
-    "webpack-cli": "^4.0.0",           
-    "html-webpack-plugin": "^5.0.0"     // Dependência de exemplo, ajuste conforme necessário
+    "webpack": "^5.0.0",         
+    "webpack-cli": "^4.0.0",   
+    "html-webpack-plugin": "^5.0.0"
   },
   "devDependencies": {
     "webpack-dev-server": "^4.0.0"    
