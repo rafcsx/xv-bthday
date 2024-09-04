@@ -1,0 +1,543 @@
+/* Estilo geral do corpo */
+* {
+    font-family: "Mulish", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #130930;
+    /* Cor de fundo principal da página */
+    color: #FE59BB;
+    /* Cor do texto principal para contraste */
+    overflow-x: hidden;
+    /* Impede rolagem horizontal indesejada */
+    position: relative;
+    min-height: 100vh;
+    /* Garante que o corpo tenha a altura mínima da tela */
+}
+
+/* --------- */
+/* Navbar Section  */
+/* --------- */
+
+.sticky {
+    background-color: #130930 !important;
+    transition: all 0.3s ease-out 0s !important;
+    box-shadow: 0px 10px 10px 0px rgba(9, 5, 29, 0.171) !important;
+    backdrop-filter: blur(15px) !important;
+}
+
+/* Estilo inicial do navbar */
+.navbar {
+    font-family: "Mulish", sans-serif;
+    font-weight: 0;
+    font-style: regular;
+    background-color: transparent;
+    /* Fundo transparente inicialmente */
+    transition: background-color 0.3s ease-out, box-shadow 0.3s ease-out;
+    /* Transição suave para a cor e sombra */
+    padding: 0.3rem 2rem;
+    font-size: 1.2rem;
+    position: fixed !important;
+    width: 100%;
+    z-index: 1000;
+    /* Garante que o navbar fique sobre outros elementos */
+}
+
+/* Estilo aplicado ao navbar quando a página é rolada para baixo */
+.navbar-scrolled {
+    background-color: rgba(26, 13, 62, 0.8);
+    /* Cor de fundo com 80% de opacidade */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    /* Leve sombra */
+}
+
+.navbar-toggler {
+    border: 1px solid rgba(26, 13, 62, 0.9);
+    /* Cor da borda igual à cor de fundo com transparência */
+    outline: none;
+    /* Remove o contorno */
+    background-color: transparent;
+    /* Define o fundo como transparente, se necessário */
+    z-index: 1;
+}
+
+.navbar-toggler:focus {
+    border-color: rgba(26, 13, 62, 0.9);
+    /* Cor da borda igual à cor de fundo com transparência */
+    box-shadow: none;
+    /* Remove o efeito de sombra ao focar */
+}
+
+/* Estilos para as barras do sanduíche */
+.navbar-toggler span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: #FE59BB;
+    /* Cor rosa */
+    margin: 5px auto;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Começar com o sanduíche fechado */
+.navbar-toggler span:nth-child(1) {
+    transform: translateY(-8px) rotate(45deg);
+}
+
+.navbar-toggler span:nth-child(2) {
+    opacity: 0;
+}
+
+.navbar-toggler span:nth-child(3) {
+    transform: translateY(8px) rotate(-45deg);
+}
+
+.navbar-toggler span:nth-child(4) {
+    display: none;
+    /* Oculto por padrão */
+}
+
+/* Animação para o estado não colapsado (aberto) */
+.navbar-toggler.collapsed span:nth-child(1),
+.navbar-toggler.collapsed span:nth-child(3) {
+    transform: rotate(0);
+}
+
+.navbar-toggler.collapsed span:nth-child(2) {
+    opacity: 1;
+}
+
+.navbar-toggler.collapsed span:nth-child(4) {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Menu toggle */
+.navbar-collapse.collapse.show {
+    display: block !important;
+}
+
+@media (max-width: 767px) {
+    .navbar {
+        padding: 1rem 2rem !important;
+        font-size: 1.4rem !important;
+        background-color: #130930 !important;
+        height: 50px;
+    }
+
+    .navbar-collapse.show {
+        background-color: rgba(26, 13, 62, 0.9);
+        /* Cor de fundo com transparência */
+    }
+
+    .navbar-nav .nav-item a::after {
+        display: none !important;
+    }
+}
+
+.navbar-brand {
+    color: rgb(250, 250, 250) !important;
+}
+
+.navbar-nav .nav-link {
+    color: white !important;
+    padding-right: 1rem !important;
+    padding-left: 1rem !important;
+}
+
+.nav-link {
+    padding: 0.8rem 1rem !important;
+}
+
+@media (max-width: 767px) {
+    .nav-link {
+        padding: 0.7rem 1rem !important;
+    }
+}
+
+.navbar-nav .nav-item {
+    position: relative;
+    margin-left: 20px;
+}
+
+.navbar-nav .nav-item a {
+    font-weight: 400;
+    transition: all 0.3s ease-out 0s;
+    position: relative;
+    z-index: 1;
+}
+
+.navbar-nav .nav-item a::after {
+    content: "";
+    position: relative;
+    display: block;
+    height: 5px;
+    width: 0;
+    border-radius: 16px;
+    background: #FE59BB;
+    /* Cor de destaque rosa */
+    bottom: 1px;
+    left: 0;
+    z-index: -1;
+    transition: all 0.3s ease-out 0s;
+}
+
+.navbar-nav .nav-item a:hover::after {
+    width: 100%;
+}
+
+
+/* Main Container */
+.container-RSVP {
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Form Styles */
+.form {
+    background: #16213e;
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.control-label {
+    color: #FE59BB;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+/* Input Group */
+.input-group {
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.input-group-addon {
+    background-color: #FE59BB;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 5px 0 0 5px;
+}
+
+.form-control {
+    background-color: #1a0d3e;
+    color: #FE59BB;
+    border: 1px solid #FE59BB;
+    border-radius: 8px;
+    padding: 3px;
+    font-family: 'Mulish', sans-serif;
+    font-size: 1em;
+}
+
+/* Mantém o estilo ao focar no campo */
+.form-control:focus,
+.form-control:active {
+    background-color: #1a0d3e;
+    color: #FE59BB;
+    border: 1px solid #FE59BB;
+    outline: none;
+    /* Remove o contorno padrão ao focar */
+}
+
+/* Radio Buttons */
+.radio-group {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+}
+
+.radio-group label {
+    color: #ffffff;
+    font-size: 1.2em;
+}
+
+/* Submit Button */
+.btn-submit {
+    background-color: #FE59BB;
+    color: #ffffff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    width: 100%;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn-submit:hover {
+    background-color: #ff4c81;
+}
+
+/* Configuração inicial para o contêiner das estrelas */
+.stars-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Estrelas individuais */
+.star {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 70%);
+    opacity: 0;
+    animation: twinkle 5.5s infinite ease-in-out;
+}
+
+.star.glow {
+    box-shadow: 0 0 10px rgba(173, 216, 230, 1);
+    /* Brilho mais intenso para alguns pontos */
+}
+
+/* Animação de queda e brilho das estrelas */
+@keyframes fall {
+    to {
+        transform: translateY(calc(100vh + 10px));
+    }
+}
+
+@keyframes twinkle {
+    0% {
+        opacity: 0;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1);
+    }
+}
+
+/* Gradiente colorido para estrelas */
+@keyframes colorChange {
+    0% {
+        background-color: #FE59BB;
+    }
+
+    25% {
+        background-color: #00BFFF;
+    }
+
+    50% {
+        background-color: #FF6347;
+    }
+
+    75% {
+        background-color: #FFD700;
+    }
+
+    100% {
+        background-color: #FE59BB;
+    }
+}
+
+/* Animação intermitente */
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.blink {
+    animation: blink 2s infinite;
+}
+
+/* Estilo do footer */
+footer {
+    position: relative;
+    background-color: #1a0d3e;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    font-weight: 50;
+    border-radius: 5px;
+
+    /* Ajuste o peso da fonte para menos negrito */
+    /* Outras propriedades podem ser ajustadas conforme necessário */
+}
+
+.social-icon {
+    margin: 0 10px;
+    color: #FE59BB;
+    font-size: 24px;
+    transition: color 0.3s;
+    text-decoration: none;
+}
+
+.social-icon:hover {
+    color: #ffffff;
+    text-decoration: none;
+    /* Remove o sublinhado */
+}
+
+.name {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.copyright {
+    font-size: 12px;
+    margin-top: 10px;
+    color: #FE59BB;
+    text-decoration: none;
+}
+
+/* Estilo responsivo para ícones sociais */
+@media (max-width: 768px) {
+    .social-icon {
+        font-size: 1.2em;
+        /* Diminuído o tamanho dos ícones em telas menores */
+    }
+}
+
+@media (max-width: 480px) {
+    .social-icon {
+        font-size: 1em;
+        /* Diminuído ainda mais o tamanho dos ícones em telas muito pequenas */
+    }
+}
+
+/* Centraliza a imagem dentro do contêiner */
+.image-center {
+    text-align: center;
+    /* Centraliza o conteúdo dentro do contêiner */
+    margin-top: 20px;
+    /* Espaçamento superior, ajuste conforme necessário */
+}
+
+.image-center img {
+    max-width: 60%;
+    /* Garante que a imagem não ultrapasse o contêiner */
+    height: auto;
+    /* Mantém a proporção da imagem */
+    border-radius: 10px;
+    /* Adiciona bordas arredondadas, ajuste conforme desejado */
+}
+
+/* Ajustes adicionais para a responsividade */
+@media (max-width: 768px) {
+    .moldura {
+        flex: 1 1 calc(50% - 15px);
+        max-width: 30%;
+    }
+}
+
+@media (max-width: 480px) {
+    .moldura {
+        flex: 1 1 100%;
+    }
+}
+
+@keyframes bounceZoom {
+    0% {
+        transform: scale(1) translateY(0);
+    }
+
+    50% {
+        transform: scale(1.2) translateY(-20px);
+    }
+
+    100% {
+        transform: scale(1) translateY(0);
+    }
+}
+
+.navFont {
+    font-family: "Mulish", sans-serif;
+    font-weight: bolder;
+    /* Define o peso da fonte como bolder */
+    font-style: normal;
+    /* Define o estilo da fonte como normal */
+}
+
+#logo {
+    width: 25%;
+}
+
+
+@keyframes gradient-move {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+
+/* Remove o cursor de texto piscando ao clicar na página */
+body,
+input,
+textarea {
+    cursor: default;
+    user-select: none;
+    /* Previne a seleção de texto */
+}
+
+input:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+    /* Remove o contorno padrão ao focar */
+}
+
+/* Estilo da seção de introdução */
+.introducao-secao {
+    padding: 20px;
+    background-color: #130930;
+    color: white;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: justify;
+    box-sizing: border-box;
+}
+
+.introducao-titulo {
+    color: #FE59BB;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 1;
+}
+
+.introducao-paragrafo {
+    font-size: 1em;
+    line-height: 1.8;
+    margin: 0 auto;
+    padding: 0 10px;
+}
