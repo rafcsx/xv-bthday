@@ -1,34 +1,18 @@
 {
-    "name": "xv-sophia",
-    "version": "1.0.0",
-    "description": "Descrição do seu projeto",
-    "main": "index.js",
-    "scripts": {
-        "start": "node index.js",
-        "dev": "nodemon index.js",
-        "build": "npm run build-css && npm run build-js",
-        "build-css": "postcss src/styles.css -o dist/styles.css",
-        "build-js": "babel src --out-dir dist",
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "dependencies": {
-        "cors": "^2.8.5",
-        "dotenv": "^16.0.3",
-        "express": "^4.18.2",
-        "helmet": "^7.1.0",
-        "mongoose": "^8.6.1"
-    },
-    "devDependencies": {
-        "autoprefixer": "^10.4.13",
-        "babel-cli": "^6.26.0",
-        "babel-preset-env": "^0.0.0",
-        "nodemon": "^3.1.4",
-        "postcss": "^8.4.21",
-        "postcss-cli": "^8.3.1"
-    },
-    "engines": {
-        "node": ">=14.0.0"
-    },
-    "author": "Rafael Correia",
-    "license": "ISC"
+  "name": "xv-soph",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "webpack --config webpack.config.js"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^12.0.2",
+    "css-loader": "^5.2.7",
+    "html-webpack-plugin": "^5.6.0",
+    "mini-css-extract-plugin": "^2.9.1",
+    "webpack": "^5.94.0",
+    "webpack-cli": "^4.10.0"
+  },
+  "dependencies": {
+    "firebase": "^10.13.1"
+  }
 }

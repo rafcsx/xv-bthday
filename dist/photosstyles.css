@@ -1,0 +1,604 @@
+/*!*****************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./xv-bthday-photos-main/Photostyles.css ***!
+  \*****************************************************************************************/
+/* Estilo geral do corpo */
+* {
+    margin: 0;
+    font-family: "Mulish", sans-serif;
+    font-weight: lighter;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #130930;
+    /* Cor de fundo principal da página */
+    color: #FE59BB;
+    /* Cor do texto principal para contraste */
+    overflow-x: hidden;
+    /* Impede rolagem horizontal indesejada */
+    position: relative;
+    min-height: 100vh;
+    /* Garante que o corpo tenha a altura mínima da tela */
+}
+
+/* --------- */
+/* Navbar Section  */
+/* --------- */
+.sticky {
+    background-color: #130930 !important;
+    transition: all 0.3s ease-out 0s !important;
+    box-shadow: 0px 10px 10px 0px rgba(9, 5, 29, 0.171) !important;
+    backdrop-filter: blur(15px) !important;
+}
+
+/* Estilo inicial do navbar */
+/* Estilo inicial do navbar */
+.navbar {
+    background-color: transparent;
+    /* Fundo transparente inicialmente */
+    transition: background-color 0.3s ease-out, box-shadow 0.3s ease-out;
+    /* Transição suave para a cor e sombra */
+    padding: 0.3rem 2rem;
+    font-size: 1.2rem;
+    position: fixed !important;
+    width: 100%;
+    z-index: 1000;
+    /* Garante que o navbar fique sobre outros elementos */
+}
+
+/* Estilo aplicado ao navbar quando a página é rolada para baixo */
+.navbar-scrolled {
+    background-color: rgba(26, 13, 62, 0.8);
+    /* Cor de fundo com 80% de opacidade */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    /* Leve sombra */
+}
+
+.navbar-toggler {
+    border: 1px solid rgba(26, 13, 62, 0.9);
+    /* Cor da borda igual à cor de fundo com transparência */
+    outline: none;
+    /* Remove o contorno */
+    background-color: transparent;
+    /* Define o fundo como transparente, se necessário */
+    z-index: 1;
+}
+
+.navbar-toggler:focus {
+    border-color: rgba(26, 13, 62, 0.9);
+    /* Cor da borda igual à cor de fundo com transparência */
+    box-shadow: none;
+    /* Remove o efeito de sombra ao focar */
+}
+
+/* Estilos para as barras do sanduíche */
+.navbar-toggler span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: #FE59BB;
+    /* Cor rosa */
+    margin: 5px auto;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Começar com o sanduíche fechado */
+.navbar-toggler span:nth-child(1) {
+    transform: translateY(-8px) rotate(45deg);
+}
+
+.navbar-toggler span:nth-child(2) {
+    opacity: 0;
+}
+
+.navbar-toggler span:nth-child(3) {
+    transform: translateY(8px) rotate(-45deg);
+}
+
+.navbar-toggler span:nth-child(4) {
+    display: none;
+    /* Oculto por padrão */
+}
+
+/* Animação para o estado não colapsado (aberto) */
+.navbar-toggler.collapsed span:nth-child(1),
+.navbar-toggler.collapsed span:nth-child(3) {
+    transform: rotate(0);
+}
+
+.navbar-toggler.collapsed span:nth-child(2) {
+    opacity: 1;
+}
+
+.navbar-toggler.collapsed span:nth-child(4) {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Menu toggle */
+.navbar-collapse.collapse.show {
+    display: block !important;
+}
+
+@media (max-width: 767px) {
+    .navbar {
+        padding: 1rem 2rem !important;
+        font-size: 1.4rem !important;
+        background-color: #130930 !important;
+        height: 50px;
+    }
+
+    .navbar-collapse.show {
+        background-color: rgba(26, 13, 62, 0.9);
+        /* Cor de fundo com transparência */
+    }
+
+    .navbar-nav .nav-item a::after {
+        display: none !important;
+    }
+}
+
+.navbar-brand {
+    color: rgb(250, 250, 250) !important;
+}
+
+.navbar-nav .nav-link {
+    color: white !important;
+    padding-right: 1rem !important;
+    padding-left: 1rem !important;
+}
+
+.nav-link {
+    padding: 0.8rem 1rem !important;
+}
+
+@media (max-width: 767px) {
+    .nav-link {
+        padding: 0.7rem 1rem !important;
+    }
+}
+
+.navbar-nav .nav-item {
+    position: relative;
+    margin-left: 20px;
+}
+
+.navbar-nav .nav-item a {
+    font-weight: 400;
+    transition: all 0.3s ease-out 0s;
+    position: relative;
+    z-index: 1;
+}
+
+.navbar-nav .nav-item a::after {
+    content: "";
+    position: relative;
+    display: block;
+    height: 5px;
+    width: 0;
+    border-radius: 16px;
+    background: #FE59BB;
+    /* Cor de destaque rosa */
+    bottom: 1px;
+    left: 0;
+    z-index: -1;
+    transition: all 0.3s ease-out 0s;
+}
+
+.navbar-nav .nav-item a:hover::after {
+    width: 100%;
+}
+
+/* Configuração inicial para o contêiner das estrelas */
+.stars-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Estrelas individuais */
+.star {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 70%);
+    opacity: 0;
+    animation: twinkle 5.5s infinite ease-in-out;
+}
+
+.star.glow {
+    box-shadow: 0 0 10px rgba(173, 216, 230, 1);
+    /* Brilho mais intenso para alguns pontos */
+}
+
+/* Animação de queda e brilho das estrelas */
+@keyframes fall {
+    to {
+        transform: translateY(calc(100vh + 10px));
+    }
+}
+
+@keyframes twinkle {
+    0% {
+        opacity: 0;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1);
+    }
+}
+
+/* Gradiente colorido para estrelas */
+@keyframes colorChange {
+    0% {
+        background-color: #FE59BB;
+    }
+
+    25% {
+        background-color: #00BFFF;
+    }
+
+    50% {
+        background-color: #FF6347;
+    }
+
+    75% {
+        background-color: #FFD700;
+    }
+
+    100% {
+        background-color: #FE59BB;
+    }
+}
+
+/* Animação intermitente */
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.blink {
+    animation: blink 2s infinite;
+}
+
+
+
+/* Estilo do footer */
+footer {
+    bottom: 0; /* Alinha o footer ao final da janela */
+    left: 0; /* Alinha o footer à esquerda da página */
+    background-color: #1a0d3e;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    font-weight: 50; /* Ajuste o peso da fonte para menos negrito */
+    z-index: 1000; /* Garante que o footer esteja acima de outros elementos */
+}
+
+.social-icon {
+    margin: 0 10px;
+    color: #FE59BB;
+    font-size: 24px;
+    transition: color 0.3s;
+    text-decoration: none;
+}
+
+.social-icon:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.name {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.copyright {
+    font-size: 12px;
+    margin-top: 10px;
+    color: #FE59BB;
+    text-decoration: none;
+}
+
+/* Animação dos pontos brilhantes seguindo o mouse */
+@keyframes follow-mouse {
+    0% {
+        transform: translate(0, 0) scale(0.5);
+        opacity: 0;
+    }
+
+    50% {
+        transform: translate(10px, 10px) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(0, 0) scale(0.5);
+        opacity: 0;
+    }
+}
+
+/* Estilo responsivo para ícones sociais */
+@media (max-width: 768px) {
+    .social-icon {
+        font-size: 1.2em;
+        /* Diminuído o tamanho dos ícones em telas menores */
+    }
+}
+
+@media (max-width: 480px) {
+    .social-icon {
+        font-size: 1em;
+        /* Diminuído ainda mais o tamanho dos ícones em telas muito pequenas */
+    }
+}
+
+/* Centraliza a imagem dentro do contêiner */
+.image-center {
+    text-align: center;
+    /* Centraliza o conteúdo dentro do contêiner */
+    margin-top: 20px;
+    /* Espaçamento superior, ajuste conforme necessário */
+}
+
+.image-center img {
+    max-width: 60%;
+    /* Garante que a imagem não ultrapasse o contêiner */
+    height: auto;
+    /* Mantém a proporção da imagem */
+    border-radius: 10px;
+    /* Adiciona bordas arredondadas, ajuste conforme desejado */
+}
+
+
+
+/* Definição da animação bounceZoom */
+@keyframes bounceZoom {
+    0% {
+        transform: scale(1) translateY(0);
+    }
+
+    50% {
+        transform: scale(1.2) translateY(-20px);
+    }
+
+    100% {
+        transform: scale(1) translateY(0);
+    }
+}
+
+
+
+.navFont {
+    font-family: "Mulish", sans-serif;
+    font-weight: bolder;
+    /* Define o peso da fonte como bolder */
+    font-style: normal;
+    /* Define o estilo da fonte como normal */
+}
+
+#logo {
+    width: 25%;
+}
+
+
+/* Remove o cursor de texto piscando ao clicar na página */
+body,
+input,
+textarea {
+    cursor: default;
+    user-select: none;
+    /* Previne a seleção de texto */
+}
+
+input:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+    /* Remove o contorno padrão ao focar */
+}
+
+.photo-gallery {
+    padding: 20px;
+    background-color: transparent; /* Fundo de acordo com o tema */
+    border-radius: 10px;
+    margin-top: 20px;
+    max-width: 1200px; /* Limita a largura máxima da galeria para centralizar no desktop */
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    margin: auto;
+    overflow: hidden;
+}
+
+.photo-container {
+    display: flex;
+    position: relative;
+    overflow: hidden;
+}
+
+.photo-gallery h2 {
+    text-align: center;
+    color: #FE59BB; /* Cor do título para combinar com o tema */
+    margin-bottom: 20px;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 colunas no desktop */
+    gap: 20px; /* Espaço entre as fotos */
+    justify-items: center;
+}
+
+.photo-item {
+    background-color: #1A1B41; /* Fundo dos campos de fotos */
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    padding: 5px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 250px; /* Define um tamanho maior para as fotos */
+    width: 100%;
+}
+
+.photo-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+.photo-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.photo-item img:hover {
+    transform: scale(1.1);
+}
+
+.photo-slide {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.photo-slide img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    flex: 0 0 100%;
+}
+
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .photo-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas no mobile */
+        gap: 15px; /* Reduz o espaço entre as fotos no mobile */
+    }
+
+    .photo-item {
+        max-width: 180px; /* Reduz o tamanho das fotos no mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .photo-grid {
+        grid-template-columns: repeat(2, 1fr); /* Mantém 2 colunas no mobile menor */
+        gap: 10px;
+    }
+
+    .photo-item {
+        max-width: 150px; /* Ajusta ainda mais o tamanho das fotos */
+    }
+}
+
+/* Estilo para a sobreposição que cobre a tela */
+/* Estilo para a seção de visualização da imagem */
+.image-viewer {
+    display: none; /* Inicialmente escondido */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Fundo escuro com opacidade */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.image-viewer img {
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease; /* Transição suave para o zoom */
+}
+
+.image-viewer-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.zoom-controls {
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    gap: 10px;
+    z-index: 1001;
+    justify-content: center;
+    width: 100%;
+}
+
+.zoom-btn {
+    background: transparent; /* Fundo transparente */
+    border: 2px solid #FE59BB; /* Cor do tema para a borda */
+    padding: 10px;
+    font-size: 24px; /* Ajuste o tamanho do ícone */
+    cursor: pointer;
+    border-radius: 50%; /* Garante que o botão seja redondo */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    color: #FE59BB; /* Cor do texto e ícones */
+    transition: background-color 0.3s, color 0.3s;
+    width: 50px; /* Ajuste a largura do botão */
+    height: 50px; /* Ajuste a altura do botão */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.zoom-btn:hover {
+    background-color: #FE59BB; /* Cor de fundo ao passar o mouse */
+    color: #fff; /* Cor do texto e ícones ao passar o mouse */
+}
+
+
+/* Botão de fechar */
+.image-viewer-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+/* Animação de aparição */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
