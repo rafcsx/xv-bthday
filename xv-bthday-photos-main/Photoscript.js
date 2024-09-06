@@ -1,4 +1,4 @@
-import './photosstyles.css';
+import './Photostyles.css'; // Certifique-se de que o nome está correto
 
 /*NAVBAR*/
 document.addEventListener('DOMContentLoaded', function () {

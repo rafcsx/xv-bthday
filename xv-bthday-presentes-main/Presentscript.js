@@ -1,5 +1,4 @@
-import './Presentstyles.css'
-
+import './Presentstyles.css'; // Certifique-se de que o nome está correto
 
 /*NAVBAR*/
 document.addEventListener('DOMContentLoaded', function () {
