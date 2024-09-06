@@ -1,7 +1,7 @@
-/* /Homeindex.html 200
-/presentes /Presentindex.html 200
-/recados /Recadoindex.html 200
-/rsvp /RSVPindex.html 200
-/obrigadomp /ObrigadoMPindex.html 200
-/obrigadorsvp /ObrigadoRSVPindex.html 200
-/photo /Photoindex.html 200
+/Homeindex /home 301
+/Presentindex /presentes 301
+/Recadoindex /recados 301
+/RSVPindex /rsvp 301
+/ObrigadoMPindex /obrigado 301
+/ObrigadoRSVPindex /obrigado-rsvp 301
+/Photoindex /fotos 301
