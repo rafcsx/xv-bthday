@@ -1,5 +1,4 @@
-import './Photostyles.css'
-
+import './photosstyles.css';
 
 /*NAVBAR*/
 document.addEventListener('DOMContentLoaded', function () {

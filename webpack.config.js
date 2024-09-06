@@ -14,7 +14,7 @@ module.exports = {
     rsvp: './xv-bthday-rsvp-main/RSVPscript.js',
   },
   output: {
-    filename: '[name].js', // Nome dos arquivos JS será baseado no nome da entrada
+    filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
   },
@@ -55,11 +55,11 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'xv-bthday-photos-main/Photoindex.html'),
       filename: 'Fotos.html',
-      chunks: ['fotos'],
+      chunks: ['photos'],
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'xv-bthday-presentes-main/Presentindex.html'),
-      filename: 'Present.html',
+      filename: 'Presentes.html',
       chunks: ['presentes'],
     }),
     new HtmlWebpackPlugin({
@@ -73,7 +73,7 @@ module.exports = {
       chunks: ['rsvp'],
     }),
     new MiniCssExtractPlugin({
-      filename: '[name]styles.css', // Nome dos arquivos CSS será baseado no nome da entrada
+      filename: '[name]styles.css',
     }),
     new CopyPlugin({
       patterns: [
@@ -84,9 +84,9 @@ module.exports = {
         { from: 'xv-bthday-presentes-main/img', to: 'img' },
         { from: 'xv-bthday-recados-main/img', to: 'img' },
         { from: 'xv-bthday-rsvp-main/img', to: 'img' },
-        { from: '_redirects', to: '' }, // Adiciona a cópia do arquivo _redirects
+        { from: '_redirects', to: '' },
       ],
     }),
   ],
-  mode: 'production', // Mude para 'production' para builds finais
+  mode: 'production',
 };
