@@ -14,7 +14,7 @@ module.exports = {
     rsvp: './xv-bthday-rsvp-main/RSVPscript.js',
   },
   output: {
-    filename: '[name]js/[name].js', // Nome dos arquivos JS será baseado no nome da entrada
+    filename: '[name].js', // Nome dos arquivos JS será baseado no nome da entrada
     path: path.resolve(__dirname, 'dist'),
     clean: true,
   },
