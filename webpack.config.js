@@ -39,37 +39,37 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'xv-bthday-main/Homeindex.html'),
-      filename: 'Homeindex.html',
+      filename: 'Home.html',
       chunks: ['home'],
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'xv-bthday-mp-obrigado-main/ObrigadoMPindex.html'),
-      filename: 'ObrigadoMPindex.html',
+      filename: 'ObrigadoMP.html',
       chunks: ['obrigadoMP'],
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'xv-bthday-obrigado-main/ObrigadoRSVPindex.html'),
-      filename: 'ObrigadoRSVPindex.html',
+      filename: 'ObrigadoRSVP.html',
       chunks: ['obrigadoRSVP'],
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'xv-bthday-photos-main/Photoindex.html'),
-      filename: 'Photoindex.html',
+      filename: 'Photo.html',
       chunks: ['photos'],
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'xv-bthday-presentes-main/Presentindex.html'),
-      filename: 'Presentindex.html',
+      filename: 'Present.html',
       chunks: ['presentes'],
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'xv-bthday-recados-main/Recadoindex.html'),
-      filename: 'Recadoindex.html',
+      filename: 'Recados.html',
       chunks: ['recados'],
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'xv-bthday-rsvp-main/RSVPindex.html'),
-      filename: 'RSVPindex.html',
+      filename: 'RSVP.html',
       chunks: ['rsvp'],
     }),
     new MiniCssExtractPlugin({
