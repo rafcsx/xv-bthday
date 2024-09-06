@@ -84,8 +84,9 @@ module.exports = {
         { from: 'xv-bthday-presentes-main/img', to: 'img' },
         { from: 'xv-bthday-recados-main/img', to: 'img' },
         { from: 'xv-bthday-rsvp-main/img', to: 'img' },
+        { from: '_redirects', to: '' }, // Adiciona a cópia do arquivo _redirects
       ],
     }),
   ],
-  mode: 'development', // Mude para 'production' para builds finais
+  mode: 'production', // Mude para 'production' para builds finais
 };
