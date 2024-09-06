@@ -54,8 +54,8 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'xv-bthday-photos-main/Photoindex.html'),
-      filename: 'Photo.html',
-      chunks: ['photos'],
+      filename: 'Fotos.html',
+      chunks: ['fotos'],
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'xv-bthday-presentes-main/Presentindex.html'),
