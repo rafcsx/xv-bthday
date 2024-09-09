@@ -266,52 +266,63 @@ body {
     margin: 0 auto;
 }
 
+/* Ajuste das molduras para desktop e tablets */
 .moldura {
     background-color: transparent;
     border: 2px solid #FE59BB;
     border-radius: 10px;
     padding: 20px;
     width: 250px;
-    height: 320px;
     text-align: center;
     position: relative;
-    transition: transform 0.3s ease-in-out;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 10px;
     box-sizing: border-box;
+    overflow: hidden; /* Garante que o conteúdo não saia do container */
+    height: auto; /* Ajuste a altura automaticamente */
 }
 
-.moldura i {
-    font-size: 50px;
-    color: #FE59BB;
-    margin: 30px 0;
+.moldura img {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border-radius: 8px; /* Arredonda levemente os cantos das imagens */
 }
 
-.item-info {
-    position: absolute;
-    top: -20px;
+.item-info-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.item-info, .preco {
     background-color: #1a0d3e;
     padding: 5px 10px;
     border-radius: 5px;
     border: 2px solid #FE59BB;
     color: #FE59BB;
     font-weight: bold;
-    white-space: nowrap;
-    left: 50%;
-    transform: translateX(-50%);
+    width: 100%;
+    box-sizing: border-box;
+    text-overflow: ellipsis;
+    white-space: nowrap; /* Impede a quebra de linha */
+    font-size: 16px; /* Tamanho da fonte padrão */
+    margin: 15px 0; /* Espaçamento entre os elementos */
 }
 
 .botao-container {
     width: 100%;
     text-align: center;
-    position: absolute;
-    bottom: 10px;
-    left: 0;
-    right: 0;
-    padding: 0 20px;
+    padding: 10px 0;
     box-sizing: border-box;
+    position: relative;
+    bottom: 0;
 }
 
 .comprar-btn {
@@ -324,9 +335,52 @@ body {
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s, font-size 0.3s;
     margin-top: 10px;
-    width: 100%;
+    width: 100%; /* Ajusta a largura do botão para caber dentro do container */
     box-sizing: border-box;
+    text-align: center; /* Centraliza o texto dentro do botão */
+    white-space: nowrap; /* Impede a quebra de linha do texto */
+    overflow: hidden; /* Garante que o texto não exceda o botão */
+    display: flex; /* Usa flexbox para centralizar o texto */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
 }
+
+/* Estilo do botão quando o item já foi presenteado */
+.comprado {
+    background-color: #4CAF50;
+    color: white;
+    cursor: default;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 100%; /* Garante que o botão ocupe toda a largura do container */
+    text-align: center; /* Centraliza o texto dentro do botão */
+    white-space: normal; /* Permite a quebra de linha do texto */
+    overflow: visible; /* Garante que o texto não seja cortado */
+    display: flex; /* Usa flexbox para centralizar o texto */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    word-wrap: break-word; /* Quebra palavras longas para ajustar ao botão */
+}
+
+/* Ajusta o botão no mobile para garantir que o texto seja visível */
+@media (max-width: 768px) {
+    .comprar-btn,
+    .comprado {
+        font-size: 14px; /* Ajusta o tamanho da fonte */
+        padding: 8px; /* Ajusta o padding */
+    }
+}
+
+@media (max-width: 480px) {
+    .comprar-btn,
+    .comprado {
+        font-size: 12px; /* Ajusta o tamanho da fonte */
+        padding: 6px; /* Ajusta o padding */
+    }
+}
+
 
 .comprar-btn:hover {
     background-color: #9D4EDD;
@@ -338,6 +392,53 @@ body {
     cursor: default;
     border: none;
 }
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .moldura {
+        width: 200px;
+        padding: 15px;
+        height: auto; /* Ajusta a altura automaticamente */
+    }
+
+    .moldura img {
+        max-height: 150px;
+    }
+
+    .item-info, .preco {
+        font-size: 14px;
+        padding: 4px 8px;
+    }
+
+    .comprar-btn {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .moldura {
+        width: 160px;
+        padding: 10px;
+        height: 380px; /* Ajuste para garantir a visibilidade dos botões e do preço */
+        overflow: auto; /* Adiciona a rolagem ao container */
+    }
+
+    .moldura img {
+        max-height: 120px;
+    }
+
+    .item-info, .preco {
+        font-size: 12px;
+        padding: 3px 6px;
+    }
+
+    .comprar-btn {
+        font-size: 12px;
+        padding: 6px;
+    }
+}
+
 
 /* Estilo do formulário de faixa de preços */
 .preco-secao {
@@ -479,7 +580,6 @@ body {
 
 /* Estilo do footer */
 footer {
-    position: fixed; /* Mantém o footer fixo no final da página */
     bottom: 0; /* Alinha o footer ao final da janela */
     left: 0; /* Alinha o footer à esquerda da página */
     background-color: #1a0d3e;

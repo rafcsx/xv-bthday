@@ -996,18 +996,21 @@ small {
     }
 }
 
+
 /* Estilo do footer */
 footer {
-    position: relative;
+    position: fixed; /* Fixa o footer no final da janela */
+    bottom: 0; /* Alinha o footer ao final da janela */
+    left: 0; /* Alinha o footer à esquerda da página */
     background-color: #1a0d3e;
     color: #ffffff;
     text-align: center;
     padding: 20px;
     width: 100%;
-    font-weight: 50;
-    /* Ajuste o peso da fonte para menos negrito */
-    /* Outras propriedades podem ser ajustadas conforme necessário */
+    font-weight: 50; /* Ajuste o peso da fonte para menos negrito */
+    z-index: 1000; /* Garante que o footer esteja acima de outros elementos */
 }
+
 
 .social-icon {
     margin: 0 10px;
