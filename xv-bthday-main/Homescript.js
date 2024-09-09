@@ -4,7 +4,7 @@ import './Homestyles.css';
 
 // Configuração do Firebase
 const firebaseConfig = {
-    apiKey: "API_KEY",
+    apiKey: "AIzaSyDbF2NHNj4wdRiNJKrRoQ4pAoVkJAy_yP8",
     authDomain: "xv-sophia-4ac28.firebaseapp.com",
     databaseURL: "https://xv-sophia-4ac28-default-rtdb.firebaseio.com",
     projectId: "xv-sophia-4ac28",
@@ -19,7 +19,6 @@ const firebaseApp = initializeApp(firebaseConfig);
 const database = getDatabase(firebaseApp);
 
 document.addEventListener("DOMContentLoaded", function () {
-    // Manipula o envio do formulário
     const form = document.getElementById('form-recados');
     const submitButton = form.querySelector('button[type="submit"]');
     const recadosContainer = document.getElementById('recados-container');
@@ -34,23 +33,34 @@ document.addEventListener("DOMContentLoaded", function () {
         const email = document.querySelector('input[name="email"]').value;
         const recado = document.querySelector('textarea[name="recado"]').value;
 
-        // Adiciona os dados ao Firebase
-        set(ref(database, 'recados-home/' + Date.now()), {
-            nome: nome,
-            email: email,
-            recado: recado,
-            timestamp: Date.now()
-        }).then(() => {
-            alert('Recado enviado com sucesso!');
-            form.reset();
-            // Reabilita o botão de envio
-            submitButton.disabled = false;
-            // Adiciona o recado ao container
-            addRecadoToContainer({ nome, recado, timestamp: Date.now() });
-        }).catch(error => {
-            console.error('Erro ao enviar recado:', error.message);
-            // Reabilita o botão de envio em caso de erro
-            submitButton.disabled = false;
+        // Gera um ID único para o recado
+        const recadoId = Date.now();
+        const recadoRef = ref(database, 'recados-home/' + recadoId);
+
+        // Verifica se o recado já existe
+        onValue(recadoRef, (snapshot) => {
+            if (!snapshot.exists()) {
+                // Adiciona os dados ao Firebase
+                set(recadoRef, {
+                    nome: nome,
+                    email: email,
+                    recado: recado,
+                    timestamp: recadoId
+                }).then(() => {
+                    alert('Recado enviado com sucesso!');
+                    form.reset();
+                    submitButton.disabled = false;
+
+                    // Adiciona o recado ao container
+                    addRecadoToContainer({ nome, recado, timestamp: recadoId });
+                }).catch(error => {
+                    console.error('Erro ao enviar recado:', error.message);
+                    submitButton.disabled = false;
+                });
+            } else {
+                alert('Esse recado já foi enviado.');
+                submitButton.disabled = false;
+            }
         });
     });
 
