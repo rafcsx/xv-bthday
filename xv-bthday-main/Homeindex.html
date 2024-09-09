@@ -21,6 +21,7 @@
         rel="stylesheet">
 
     <!-- Carregar CSS Principal -->
+     <link rel="stylesheet" href="Homestyles.css">
 </head>
 
 <body>
@@ -153,40 +154,34 @@
                 </div>
             </div>
         </div><br>
-        <a href="https://xv-bthday-presentes.netlify.app/" target="_blank" rel="noopener noreferrer">
+        <a href="https://xvsophiajustino.com.br/presentes" target="_blank" rel="noopener noreferrer">
             <img id="presentBox" src="./img/present-box.svg" alt="Caixa de Presente">
         </a>
     </section>
 
-    <section id="signup" class="signup">
-        <div class="container">
-            <i id="balaotxt" class="fa fa-comments fa-3x"></i>
-        </div>
 
-        <span>Recado para a <b>aniversariante</b></span>
-        <div class="form">
-            <h2>Preencha os campos abaixo</h2>
-            <form id="form-recados" method="POST">
-                <div class="form-group">
-                    <input class="form-control" placeholder="Nome" name="nome" type="text" required>
+        <section id="signup" class="signup">
+            <div class="container">
+                    <i id="balaotxt" class="fa fa-comments fa-3x"></i><br>
+                <span>Recado para a <b>aniversariante</b></span>
+                <div class="form">
+                    <h2>Preencha os campos abaixo</h2>
+                    <form id="form-recados" method="POST">
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Nome" name="nome" type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="E-mail" name="email" type="email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea cols="60" rows="7" class="form-control" placeholder="Mensagem" name="recado"
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Enviar</button>
+                    </form>
                 </div>
-                <div class="form-group">
-                    <input class="form-control" placeholder="E-mail" name="email" type="email" required>
-                </div>
-                <div class="form-group">
-                    <textarea cols="60" rows="7" class="form-control" placeholder="Mensagem" name="recado" required></textarea>
-                </div>
-                <button type="submit" class="btn-submit">Enviar</button>
-            </form>
-        </div>
-        <!-- Container para comentários -->
-        <div id="recados-container"></div>
-    </section><br>
-
-        <!-- Importa o Firebase e seu script -->
-        <script type="module" src="script.js"></script>
-        <script type="module" src="index.js"></script>
-    </section><br>
+            </div>
+        </section><br>
 
     <!-- Seção de Molduras em Órbita
     <section class="faixa-fotos">
@@ -225,7 +220,7 @@
             © All rights reserved 2024
         </a>
     </footer>
-
+<script src="Homescript.js"></script>
 </body>
 
 </html>

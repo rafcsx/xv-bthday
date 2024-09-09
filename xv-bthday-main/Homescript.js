@@ -1,4 +1,48 @@
-import './Homestyles.css'
+import { initializeApp } from 'firebase/app';
+import { getDatabase, ref, set, onValue } from 'firebase/database';
+import './Homestyles.css'; 
+
+
+// Configuração do Firebase
+const firebaseConfig = {
+    apiKey: "AIzaSyDbF2NHNj4wdRiNJKrRoQ4pAoVkJAy_yP8",
+    authDomain: "xv-sophia-4ac28.firebaseapp.com",
+    databaseURL: "https://xv-sophia-4ac28-default-rtdb.firebaseio.com",
+    projectId: "xv-sophia-4ac28",
+    storageBucket: "xv-sophia-4ac28.appspot.com",
+    messagingSenderId: "636614421828",
+    appId: "1:636614421828:web:7111bcf89337fef75e7b11",
+    measurementId: "G-X8DEW4STTG"
+};
+
+// Inicializa o Firebase
+const firebaseApp = initializeApp(firebaseConfig);
+const database = getDatabase(firebaseApp);
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Manipula o envio do formulário
+    document.getElementById('form-recados').addEventListener('submit', function (event) {
+        event.preventDefault(); // Impede o envio padrão do formulário
+
+        const nome = document.querySelector('input[name="nome"]').value;
+        const email = document.querySelector('input[name="email"]').value;
+        const recado = document.querySelector('textarea[name="recado"]').value;
+
+        // Adiciona os dados ao Firebase
+        set(ref(database, 'recados-home/' + Date.now()), {
+            nome: nome,
+            email: email,
+            recado: recado,
+            timestamp: Date.now()
+        }).then(() => {
+            alert('Recado enviado com sucesso!');
+            document.getElementById('form-recados').reset();
+        }).catch(error => {
+            console.error('Erro ao enviar recado:', error.message);
+        });
+    });
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
     // Função para criar e adicionar estrelas
@@ -159,50 +203,6 @@ carousel.addEventListener('touchend', (e) => {
     }
 });
 
-import { initializeApp } from "firebase/app";
-import { getDatabase } from "firebase/database";
-
-// Configuração do Firebase
-const firebaseConfig = {
-    apiKey: "AIzaSyDbF2NHNj4wdRiNJKrRoQ4pAoVkJAy_yP8",
-    authDomain: "xv-sophia-4ac28.firebaseapp.com",
-    databaseURL: "https://xv-sophia-4ac28-default-rtdb.firebaseio.com",
-    projectId: "xv-sophia-4ac28",
-    storageBucket: "xv-sophia-4ac28.appspot.com",
-    messagingSenderId: "636614421828",
-    appId: "1:636614421828:web:7111bcf89337fef75e7b11",
-    measurementId: "G-X8DEW4STTG"
-};
-
-// Inicializa o Firebase
-const firebaseApp = initializeApp(firebaseConfig);
-const database = getDatabase(firebaseApp);
-
-document.addEventListener("DOMContentLoaded", function () {
-    // Manipula o envio do formulário
-    document.getElementById('form-recados').addEventListener('submit', function (event) {
-        event.preventDefault(); // Impede o envio padrão do formulário
-
-        const nome = document.querySelector('input[name="nome"]').value;
-        const email = document.querySelector('input[name="email"]').value;
-        const recado = document.querySelector('textarea[name="recado"]').value;
-
-        // Adiciona os dados ao Firebase
-        set(ref(database, 'recados-home/' + Date.now()), {
-            nome: nome,
-            email: email,
-            recado: recado,
-            timestamp: Date.now()
-        }).then(() => {
-            alert('Recado enviado com sucesso!');
-            document.getElementById('form-recados').reset();
-        }).catch(error => {
-            console.error('Erro ao enviar recado:', error.message);
-        });
-    });
-
-   
-});
 
 document.addEventListener('DOMContentLoaded', function () {
     const menuToggle = document.getElementById('menu-toggle');
@@ -241,3 +241,5 @@ document.addEventListener('DOMContentLoaded', function () {
 
     window.addEventListener('scroll', handleScroll); // Adiciona o evento de scroll ao window
 });
+})
+
