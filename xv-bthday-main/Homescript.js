@@ -49,7 +49,6 @@ document.addEventListener("DOMContentLoaded", function () {
             // Reabilita o botão de envio em caso de erro
             submitButton.disabled = false;
         });
-    });
 
         // Array para armazenar os recados
         const recadosArray = [];
