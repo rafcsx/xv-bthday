@@ -1,6 +1,7 @@
 import { initializeApp } from 'firebase/app';
-import { getDatabase, ref, set, onValue } from 'firebase/database';
-import './Recadostyles.css'; 
+import { getDatabase, ref, set, onValue, query, orderByChild } from 'firebase/database';
+import './Recadostyles.css';
+
 // Configuração do Firebase
 const firebaseConfig = {
     apiKey: "AIzaSyDbF2NHNj4wdRiNJKrRoQ4pAoVkJAy_yP8",
@@ -19,8 +20,14 @@ const database = getDatabase(firebaseApp);
 
 document.addEventListener("DOMContentLoaded", function () {
     // Manipula o envio do formulário
-    document.getElementById('form-recados').addEventListener('submit', function (event) {
+    const form = document.getElementById('form-recados');
+    const submitButton = form.querySelector('button[type="submit"]');
+
+    form.addEventListener('submit', function (event) {
         event.preventDefault(); // Impede o envio padrão do formulário
+
+        // Desabilita o botão de envio
+        submitButton.disabled = true;
 
         const nome = document.querySelector('input[name="nome"]').value;
         const email = document.querySelector('input[name="email"]').value;
@@ -34,19 +41,36 @@ document.addEventListener("DOMContentLoaded", function () {
             timestamp: Date.now()
         }).then(() => {
             alert('Recado enviado com sucesso!');
-            document.getElementById('form-recados').reset();
+            form.reset();
+            // Reabilita o botão de envio
+            submitButton.disabled = false;
         }).catch(error => {
             console.error('Erro ao enviar recado:', error.message);
+            // Reabilita o botão de envio em caso de erro
+            submitButton.disabled = false;
         });
     });
 
     // Recupera os comentários do Firebase e exibe-os
-    onValue(ref(database, 'recados-home'), function (snapshot) {
+    const recadosRef = query(ref(database, 'recados-home'), orderByChild('timestamp'));
+
+    onValue(recadosRef, function (snapshot) {
         const recadosContainer = document.getElementById('recados-container');
         recadosContainer.innerHTML = ''; // Limpa os comentários atuais
 
+        // Array para armazenar os recados
+        const recadosArray = [];
+
         snapshot.forEach(function (childSnapshot) {
             const recadoData = childSnapshot.val();
+            recadosArray.push(recadoData);
+        });
+
+        // Ordena o array por timestamp em ordem decrescente
+        recadosArray.sort((a, b) => b.timestamp - a.timestamp);
+
+        // Adiciona os recados ao container
+        recadosArray.forEach(function (recadoData) {
             const recadoElement = document.createElement('div');
             recadoElement.classList.add('recado');
 
@@ -149,28 +173,4 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     window.addEventListener('scroll', handleScroll); // Adiciona o evento de scroll ao window
-
-    // Adicionar funcionalidade para a contagem regressiva
-    function updateCountdown() {
-        const eventDate = new Date('2024-10-11T22:00:00-03:00'); // Atualizado para 22:00 BRT (UTC-3)
-        const now = new Date();
-        const timeDiff = eventDate - now;
-
-        if (timeDiff < 0) {
-            document.querySelector('.countdown').innerHTML = "<h3>Evento Encerrado</h3>";
-            return;
-        }
-
-        const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
-
-        document.getElementById('days').textContent = days;
-        document.getElementById('hours').textContent = hours;
-        document.getElementById('minutes').textContent = minutes;
-    }
-
-    // Atualizar a contagem regressiva a cada minuto
-    updateCountdown();
-    setInterval(updateCountdown, 60000);
 });

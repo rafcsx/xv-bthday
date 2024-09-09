@@ -595,8 +595,7 @@ body {
     margin-bottom: 20px;
     padding: 15px;
     border-radius: 10px;
-    background-color: #16213e;
-    /* Fundo para o container do recado */
+    background-color: #16213e; /* Fundo para o container do recado */
 }
 
 .recado-nome h3 {
@@ -606,15 +605,11 @@ body {
     margin-left: 35%;
     width: 30%;
     padding: 10px;
-    color: #F6F6F6;
-    /* Cor do texto (para combinar com o balão) */
-    border-radius: 5px;
-    /* Bordas totalmente arredondadas */
+    color: #F6F6F6; /* Cor do texto (para combinar com o balão) */
+    border-radius: 5px; /* Bordas totalmente arredondadas */
     font-size: 15px;
-    text-align: center;
-    /* Centraliza o texto dentro do fundo */
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
-    /* Sombra ao redor do nome */
+    text-align: center; /* Centraliza o texto dentro do fundo */
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5); /* Sombra ao redor do nome */
 }
 
 .recado-balao {
@@ -622,19 +617,15 @@ body {
     margin-top: 10px;
     padding: 15px;
     background-color: #1a0d3e;
-            border: 1px solid #FE59BB; /* Borda fina na cor rosa do tema */
-
-    /* Cor do balão */
-    color: white;
+    border: 1px solid #FE59BB; /* Borda fina na cor rosa do tema */
+    color: white; /* Cor do texto do balão */
     border-radius: 10px;
     font-size: 1.1em;
-    transition: box-shadow 0.3s ease;
-    /* Transição suave para o hover */
+    transition: box-shadow 0.3s ease; /* Transição suave para o hover */
 }
 
 .recado-balao:hover {
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    /* Sombra ao redor do balão ao passar o mouse */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombra ao redor do balão ao passar o mouse */
 }
 
 .recado-balao::after {
@@ -644,8 +635,7 @@ body {
     left: 20px;
     border-width: 10px;
     border-style: solid;
-    border-color: #1a0d3e transparent transparent transparent;
-    /* Triângulo apontando para baixo */
+    border-color: #1a0d3e transparent transparent transparent; /* Triângulo apontando para baixo */
 }
 
 small {
