@@ -72,6 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Função para mover os slides
     let slideIndex = 1;
+
     function moveSlide(n) {
         showSlide(slideIndex += n);
     }
@@ -88,17 +89,23 @@ document.addEventListener('DOMContentLoaded', function () {
         if (n > slides.length) { slideIndex = 1; }
         if (n < 1) { slideIndex = slides.length; }
 
+        // Ocultar todos os slides
         for (i = 0; i < slides.length; i++) {
             slides[i].style.display = "none";  
         }
 
+        // Remover a classe ativa dos indicadores
         for (i = 0; i < indicators.length; i++) {
             indicators[i].className = indicators[i].className.replace(" active", "");
         }
 
+        // Exibir o slide atual
         slides[slideIndex - 1].style.display = "block";
         indicators[slideIndex - 1].className += " active";
     }
+
+    // Inicializar o carousel e mostrar o primeiro slide
+    showSlide(slideIndex);
 
     // Navegação automática do carousel a cada 3 segundos
     setInterval(() => {
