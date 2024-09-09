@@ -2,7 +2,6 @@ import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, set, onValue } from 'firebase/database';
 import './Homestyles.css'; 
 
-
 // Configuração do Firebase
 const firebaseConfig = {
     apiKey: "AIzaSyDbF2NHNj4wdRiNJKrRoQ4pAoVkJAy_yP8",
