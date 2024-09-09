@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getDatabase, ref, set, onValue } from 'firebase/database';
+import { getDatabase, ref, set } from 'firebase/database';
 import './Homestyles.css'; 
 
 // Configuração do Firebase
@@ -18,7 +18,7 @@ const firebaseConfig = {
 const firebaseApp = initializeApp(firebaseConfig);
 const database = getDatabase(firebaseApp);
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener('DOMContentLoaded', function () {
     // Manipula o envio do formulário
     document.getElementById('form-recados').addEventListener('submit', function (event) {
         event.preventDefault(); // Impede o envio padrão do formulário
@@ -41,9 +41,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-
-
-document.addEventListener("DOMContentLoaded", function () {
     // Função para criar e adicionar estrelas
     function createStars() {
         const numStars = 100; // Número total de estrelas
@@ -75,8 +72,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Função para mover os slides
     let slideIndex = 1;
-    showSlide(slideIndex);
-
     function moveSlide(n) {
         showSlide(slideIndex += n);
     }
@@ -90,11 +85,11 @@ document.addEventListener("DOMContentLoaded", function () {
         const slides = document.querySelectorAll(".carousel-item");
         const indicators = document.querySelectorAll(".indicator");
 
-        if (n > slides.length) { slideIndex = 1 }
-        if (n < 1) { slideIndex = slides.length }
+        if (n > slides.length) { slideIndex = 1; }
+        if (n < 1) { slideIndex = slides.length; }
 
         for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
+            slides[i].style.display = "none";  
         }
 
         for (i = 0; i < indicators.length; i++) {
@@ -105,128 +100,102 @@ document.addEventListener("DOMContentLoaded", function () {
         indicators[slideIndex - 1].className += " active";
     }
 
-    // Navegação automática do carousel a cada 2 segundos
-setInterval(() => {
-    moveSlide(1); // Mover para o próximo slide
-}, 3000); // Intervalo de 3 segundos
+    // Navegação automática do carousel a cada 3 segundos
+    setInterval(() => {
+        moveSlide(1); // Mover para o próximo slide
+    }, 3000);
 
-    // Inicializar estrelas e slide
-    createStars();
-    showSlide(slideIndex);
-
-    // Adicionar funcionalidade para a contagem regressiva
-function updateCountdown() {
-    const eventDate = new Date('2024-10-11T22:00:00-03:00'); // Data e hora do evento
-    const now = new Date(); // Data e hora atual
-    const timeDiff = eventDate - now;
-
-    if (timeDiff <= 0) {
-        document.querySelector('.countdown').innerHTML = "<h3>Evento Encerrado</h3>";
-        return;
+    // Adiciona eventos de clique para as setas de navegação
+    const leftControl = document.querySelector('.carousel-control.left');
+    const rightControl = document.querySelector('.carousel-control.right');
+    
+    if (leftControl) {
+        leftControl.addEventListener('click', function() {
+            moveSlide(-1);
+        });
     }
 
-    const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
-
-    document.getElementById('days').textContent = days;
-    document.getElementById('hours').textContent = hours;
-    document.getElementById('minutes').textContent = minutes;
-    document.getElementById('seconds').textContent = seconds;
-}
-
-// Atualizar a contagem regressiva a cada segundo
-updateCountdown();
-setInterval(updateCountdown, 1000);
-
-    // Adicionar funcionalidade para controle de slides
-    document.querySelector('.carousel-control.left').addEventListener('click', () => moveSlide(-1));
-    document.querySelector('.carousel-control.right').addEventListener('click', () => moveSlide(1));
+    if (rightControl) {
+        rightControl.addEventListener('click', function() {
+            moveSlide(1);
+        });
+    }
 
     // Adicionar funcionalidade para indicadores
     const indicators = document.querySelectorAll('.indicator');
     indicators.forEach((indicator, index) => {
         indicator.addEventListener('click', () => currentSlide(index + 1));
     });
-});
 
-// Função para mover os slides
-let slideIndex = 1;
-showSlide(slideIndex);
+    // Adicionar navegação por toque
+    const carousel = document.querySelector('.carousel-inner');
+    let startX;
+    let endX;
 
-function moveSlide(n) {
-    showSlide(slideIndex += n);
-}
+    if (carousel) {
+        carousel.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+        });
 
-function currentSlide(n) {
-    showSlide(slideIndex = n);
-}
-
-function showSlide(n) {
-    let i;
-    const slides = document.querySelectorAll(".carousel-item");
-    const indicators = document.querySelectorAll(".indicator");
-
-    if (n > slides.length) { slideIndex = 1 }
-    if (n < 1) { slideIndex = slides.length }
-
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
+        carousel.addEventListener('touchend', (e) => {
+            endX = e.changedTouches[0].clientX;
+            if (startX > endX) {
+                moveSlide(1); // Navegar para a próxima imagem
+            } else {
+                moveSlide(-1); // Navegar para a imagem anterior
+            }
+        });
     }
 
-    for (i = 0; i < indicators.length; i++) {
-        indicators[i].className = indicators[i].className.replace(" active", "");
+    // Atualizar a contagem regressiva a cada segundo
+    function updateCountdown() {
+        const eventDate = new Date('2024-10-11T22:00:00-03:00'); // Data e hora do evento
+        const now = new Date(); // Data e hora atual
+        const timeDiff = eventDate - now;
+
+        if (timeDiff <= 0) {
+            document.querySelector('.countdown').innerHTML = "<h3>Evento Encerrado</h3>";
+            return;
+        }
+
+        const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+        document.getElementById('days').textContent = days;
+        document.getElementById('hours').textContent = hours;
+        document.getElementById('minutes').textContent = minutes;
+        document.getElementById('seconds').textContent = seconds;
     }
 
-    slides[slideIndex - 1].style.display = "block";
-    indicators[slideIndex - 1].className += " active";
-}
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
 
-// Adicionar navegação por toque
-let startX;
-let endX;
-
-const carousel = document.querySelector('.carousel-inner');
-
-carousel.addEventListener('touchstart', (e) => {
-    startX = e.touches[0].clientX;
-});
-
-carousel.addEventListener('touchend', (e) => {
-    endX = e.changedTouches[0].clientX;
-    if (startX > endX) {
-        moveSlide(1); // Navegar para a próxima imagem
-    } else {
-        moveSlide(-1); // Navegar para a imagem anterior
-    }
-});
-
-
-document.addEventListener('DOMContentLoaded', function () {
+    // Toggle do menu de navegação
     const menuToggle = document.getElementById('menu-toggle');
     const navMenu = document.getElementById('nav-menu');
 
-    menuToggle.addEventListener('click', function () {
-        if (navMenu.style.display === 'block') {
-            navMenu.style.display = 'none';
-        } else {
-            navMenu.style.display = 'block';
-        }
-    });
-});
+    if (menuToggle) {
+        menuToggle.addEventListener('click', function () {
+            if (navMenu.style.display === 'block') {
+                navMenu.style.display = 'none';
+            } else {
+                navMenu.style.display = 'block';
+            }
+        });
+    }
 
-document.addEventListener('DOMContentLoaded', () => {
     const navbarToggler = document.getElementById('navbar-toggler');
     const navbarCollapse = document.getElementById('responsive-navbar-nav');
 
-    navbarToggler.addEventListener('click', () => {
-        navbarToggler.classList.toggle('collapsed');
-        navbarCollapse.classList.toggle('show');
-    });
-});
+    if (navbarToggler && navbarCollapse) {
+        navbarToggler.addEventListener('click', () => {
+            navbarToggler.classList.toggle('collapsed');
+            navbarCollapse.classList.toggle('show');
+        });
+    }
 
-document.addEventListener('DOMContentLoaded', function () {
     const navbar = document.querySelector('.navbar'); // Seleciona o elemento do navbar
     const scrollThreshold = 50; // Define o ponto onde o navbar muda (em pixels)
 
@@ -239,6 +208,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     window.addEventListener('scroll', handleScroll); // Adiciona o evento de scroll ao window
-});
-})
 
+    // Cria estrelas
+    createStars();
+});
