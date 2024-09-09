@@ -18,10 +18,16 @@ const firebaseConfig = {
 const firebaseApp = initializeApp(firebaseConfig);
 const database = getDatabase(firebaseApp);
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function () {
     // Manipula o envio do formulário
-    document.getElementById('form-recados').addEventListener('submit', function (event) {
+    const form = document.getElementById('form-recados');
+    const submitButton = form.querySelector('button[type="submit"]');
+
+    form.addEventListener('submit', function (event) {
         event.preventDefault(); // Impede o envio padrão do formulário
+
+        // Desabilita o botão de envio
+        submitButton.disabled = true;
 
         const nome = document.querySelector('input[name="nome"]').value;
         const email = document.querySelector('input[name="email"]').value;
@@ -35,9 +41,64 @@ document.addEventListener('DOMContentLoaded', function () {
             timestamp: Date.now()
         }).then(() => {
             alert('Recado enviado com sucesso!');
-            document.getElementById('form-recados').reset();
+            form.reset();
+            // Reabilita o botão de envio
+            submitButton.disabled = false;
         }).catch(error => {
             console.error('Erro ao enviar recado:', error.message);
+            // Reabilita o botão de envio em caso de erro
+            submitButton.disabled = false;
+        });
+    });
+
+        // Array para armazenar os recados
+        const recadosArray = [];
+
+        snapshot.forEach(function (childSnapshot) {
+            const recadoData = childSnapshot.val();
+            recadosArray.push(recadoData);
+        });
+
+        // Ordena o array por timestamp em ordem decrescente
+        recadosArray.sort((a, b) => b.timestamp - a.timestamp);
+
+        // Adiciona os recados ao container
+        recadosArray.forEach(function (recadoData) {
+            const recadoElement = document.createElement('div');
+            recadoElement.classList.add('recado');
+
+            recadoElement.innerHTML = `
+                <div class="recado-balao">
+                    <p>${recadoData.recado}</p>
+                </div>
+                <br>
+                <div class="recado-nome">
+                    <h3>${recadoData.nome}</h3>
+                </div>
+                <small>${new Date(recadoData.timestamp).toLocaleString()}</small>
+            `;
+
+            // Função para gerar um gradiente aleatório com boa harmonia de cores
+            function generateRandomGradient() {
+                const colors = [
+                    "#FF7E79", "#FFCC00", "#66FF66", "#00CCCC",
+                    "#FF66B2", "#FF9933", "#6699FF", "#CC33FF"
+                ];
+
+                const color1 = colors[Math.floor(Math.random() * colors.length)];
+                const color2 = colors[Math.floor(Math.random() * colors.length)];
+
+                return `linear-gradient(90deg, ${color1}, ${color2}, #FFFFFF)`;
+            }
+
+            // Define o gradiente aleatório no nome
+            const nomeElement = recadoElement.querySelector('.recado-nome h3');
+            nomeElement.style.background = generateRandomGradient();
+            nomeElement.style.backgroundClip = 'text'; // Faz com que o gradiente apareça apenas no texto
+            nomeElement.style.color = 'transparent'; // Torna o texto transparente para ver o gradiente
+            nomeElement.style.animation = 'gradient-move 5s linear infinite'; // Aplica a animação ao gradiente
+
+            recadosContainer.appendChild(recadoElement);
         });
     });
 
