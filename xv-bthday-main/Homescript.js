@@ -102,8 +102,34 @@ document.addEventListener("DOMContentLoaded", function () {
         recadosContainer.appendChild(recadoElement);
     }
 
+    // Função para criar e adicionar estrelas
+    function createStars() {
+        const numStars = 100; // Número total de estrelas
+        const starsContainer = document.createElement('div');
+        starsContainer.className = 'stars';
 
+        for (let i = 0; i < numStars; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
 
+            const size = Math.random() * 3 + 1; // Tamanho entre 1 e 4
+            const left = Math.random() * 100; // Posição horizontal (0-100%)
+            const top = Math.random() * 100; // Posição vertical (0-100%)
+
+            // Cor aleatória: 80% branco, 20% rosa (#FE59BB)
+            const color = Math.random() < 0.2 ? '#FE59BB' : '#fff';
+            star.style.backgroundColor = color;
+
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+            star.style.left = `${left}%`;
+            star.style.top = `${top}%`;
+
+            starsContainer.appendChild(star);
+        }
+
+        document.body.appendChild(starsContainer);
+    }
 
     // Função para mover os slides
     let slideIndex = 1;
@@ -188,66 +214,32 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
-// Função para criar e adicionar estrelas
-function createStars() {
-    const numStars = 100; // Número total de estrelas
-    const starsContainer = document.createElement('div');
-    starsContainer.className = 'stars-container'; // Altere o nome para stars-container
 
-    for (let i = 0; i < numStars; i++) {
-        const star = document.createElement('div');
-        star.className = 'star';
+    // Atualizar a contagem regressiva a cada segundo
+    function updateCountdown() {
+        const eventDate = new Date('2024-10-11T22:00:00-03:00'); // Data e hora do evento
+        const now = new Date(); // Data e hora atual
+        const timeDiff = eventDate - now;
 
-        const size = Math.random() * 3 + 1; // Tamanho entre 1 e 4
-        const left = Math.random() * 100; // Posição horizontal (0-100%)
-        const top = Math.random() * 100; // Posição vertical (0-100%)
-
-        // Cor: 80% dourada (#EFB810) e 20% branca (#EAF2EF)
-        const color = Math.random() < 0.2 ? '#EFB810' : '#EFB810';
-        star.style.backgroundColor = color;
-
-        // Adiciona o brilho em algumas estrelas aleatoriamente
-        if (Math.random() < 0.5) { // 50% chance de adicionar brilho
-            star.classList.add('glow');
+        if (timeDiff <= 0) {
+            document.querySelector('.countdown').innerHTML = "<h3>Evento Encerrado</h3>";
+            return;
         }
 
-        star.style.width = `${size}px`;
-        star.style.height = `${size}px`;
-        star.style.left = `${left}%`;
-        star.style.top = `${top}%`;
+        const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
 
-        starsContainer.appendChild(star);
+        document.getElementById('days').textContent = days;
+        document.getElementById('hours').textContent = hours;
+        document.getElementById('minutes').textContent = minutes;
+        document.getElementById('seconds').textContent = seconds;
     }
 
-    document.body.appendChild(starsContainer);
-}
+    setInterval(updateCountdown, 1000); // Atualiza a cada segundo
+    updateCountdown(); // Chama imediatamente para evitar atraso inicial
 
-// Atualizar a contagem regressiva a cada segundo
-function updateCountdown() {
-    const eventDate = new Date('2025-01-04T22:00:00-03:00'); // Data e hora do evento (04/01/2025 às 22h)
-    const now = new Date(); // Data e hora atual
-    const timeDiff = eventDate - now;
-
-    if (timeDiff <= 0) {
-        document.querySelector('.countdown').innerHTML = "<h3>Evento Encerrado</h3>";
-        return;
-    }
-
-    const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
-
-    document.getElementById('days').textContent = days;
-    document.getElementById('hours').textContent = hours;
-    document.getElementById('minutes').textContent = minutes;
-    document.getElementById('seconds').textContent = seconds;
-}
-
-setInterval(updateCountdown, 1000); // Atualiza a cada segundo
-updateCountdown(); // Chama imediatamente para evitar atraso inicial
-
-// Chama a função para criar e adicionar estrelas
-createStars();
-
+    // Chama a função para criar e adicionar estrelas
+    createStars();
 });
