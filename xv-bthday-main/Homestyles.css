@@ -10,9 +10,9 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
-    background-color: #130930;
+    background-color: #F40179;
     /* Cor de fundo principal da página */
-    color: #FE59BB;
+    color: #EAF2EF;
     /* Cor do texto principal para contraste */
     overflow-x: hidden;
     /* Impede rolagem horizontal indesejada */
@@ -26,13 +26,12 @@ body {
 /* --------- */
 
 .sticky {
-    background-color: #130930 !important;
+    background-color: #F40179 !important;
     transition: all 0.3s ease-out 0s !important;
     box-shadow: 0px 10px 10px 0px rgba(9, 5, 29, 0.171) !important;
     backdrop-filter: blur(15px) !important;
 }
 
-/* Estilo inicial do navbar */
 /* Estilo inicial do navbar */
 .navbar {
     background-color: transparent;
@@ -40,36 +39,35 @@ body {
     transition: background-color 0.3s ease-out, box-shadow 0.3s ease-out;
     /* Transição suave para a cor e sombra */
     padding: 0.3rem 2rem;
+    height: 100px;
     font-size: 1.2rem;
     position: fixed !important;
     width: 100%;
     z-index: 1000;
     /* Garante que o navbar fique sobre outros elementos */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 /* Estilo aplicado ao navbar quando a página é rolada para baixo */
 .navbar-scrolled {
-    background-color: rgba(26, 13, 62, 0.8);
+    background-color: rgba(26, 13, 62, 0.4);
     /* Cor de fundo com 80% de opacidade */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     /* Leve sombra */
 }
 
 .navbar-toggler {
-    border: 1px solid rgba(26, 13, 62, 0.9);
+    background-color: rgba(26, 13, 62, 0.4);
     /* Cor da borda igual à cor de fundo com transparência */
     outline: none;
     /* Remove o contorno */
     background-color: transparent;
     /* Define o fundo como transparente, se necessário */
     z-index: 1;
-}
-
-.navbar-toggler:focus {
-    border-color: rgba(26, 13, 62, 0.9);
-    /* Cor da borda igual à cor de fundo com transparência */
-    box-shadow: none;
-    /* Remove o efeito de sombra ao focar */
+    position: absolute;
+    right: 2rem;
 }
 
 /* Estilos para as barras do sanduíche */
@@ -142,6 +140,13 @@ body {
 
 .navbar-brand {
     color: rgb(250, 250, 250) !important;
+    font-size: 1.5rem; /* Aumente o tamanho da fonte para ajustar o tamanho do logo */
+}
+
+.navbar-brand img {
+    height: auto;
+    max-height: 70px; /* Ajuste conforme necessário para aumentar o tamanho do logo */
+    width: auto;
 }
 
 .navbar-nav .nav-link {
@@ -179,7 +184,7 @@ body {
     height: 5px;
     width: 0;
     border-radius: 16px;
-    background: #FE59BB;
+    background: #EEB811;
     /* Cor de destaque rosa */
     bottom: 1px;
     left: 0;
@@ -190,6 +195,7 @@ body {
 .navbar-nav .nav-item a:hover::after {
     width: 100%;
 }
+
 
 
 /* Estilo da seção de contagem regressiva */
@@ -273,11 +279,13 @@ body {
     font-size: 1.4em;
     margin-top: 3%;
     text-align: center;
+    color: #EFB810;
+
     /* Centraliza o texto horizontalmente */
 }
 
 .countdown-text i {
-    color: #ff77a8;
+    color: #EFB810;
     margin-bottom: 5px;
 }
 
@@ -289,7 +297,7 @@ body {
 }
 
 .countdown-item:hover {
-    background-color: #1e2a55;
+    background-color: #521945;
     transform: scale(1.1);
     /* Reduz o efeito de escala ao passar o mouse */
 }
@@ -456,7 +464,7 @@ body {
     width: 12px;
     height: 12px;
     margin: 0 5px;
-    background-color: #FE59BB;
+    background-color: #EFB810;
     border: none;
     border-radius: 50%;
     /* Garante que os indicadores sejam perfeitamente redondos */
@@ -488,7 +496,7 @@ body {
 
 /* Estilo do formulário */
 .signup {
-    background: #16213e;
+    background: #521945;
     padding: 20px;
     max-width: 600px;
     /* Ajusta a largura máxima do formulário */
@@ -502,7 +510,7 @@ body {
 }
 
 .form {
-    background: #16213e;
+    background: #521945;
     font-weight: lighter;
     /* Fundo do formulário */
     border-radius: 5px;
@@ -536,7 +544,7 @@ body {
 }
 
 .btn-submit {
-    background: #ff6f91;
+    background: #f4017b85;
     color: white;
     padding: 15px 30px;
     border: none;
@@ -547,7 +555,7 @@ body {
 }
 
 .btn-submit:hover {
-    background: #ff4c81;
+    background: #F40179;
 }
 
 /* Estilos responsivos */
@@ -816,7 +824,7 @@ small {
     font-family: "Spectral", serif;
     line-height: 0.9;
     letter-spacing: 1px;
-    color: #FE59BB;
+    color: #EAF2EF;
     font-size: 1.6em;
     text-transform: uppercase;
     margin-top: 0;
@@ -838,7 +846,7 @@ small {
     font-family: "Spectral", serif;
     line-height: 0.9;
     letter-spacing: 1px;
-    color: #FE59BB;
+    color: #EAF2EF;
     font-size: 1.6em;
     text-transform: uppercase;
     margin-top: 0;
@@ -881,16 +889,13 @@ small {
 /* Estrelas individuais */
 .star {
     position: absolute;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 70%);
+    border-radius: 50%; 
+    background: radial-gradient(circle, rgba(248, 243, 91, 0) 0%, rgb(253, 165, 0) 70%); /* Novo gradiente dourado */
     opacity: 0;
     animation: twinkle 5.5s infinite ease-in-out;
 }
 
-.star.glow {
-    box-shadow: 0 0 10px rgba(173, 216, 230, 1);
-    /* Brilho mais intenso para alguns pontos */
-}
+
 
 /* Animação de queda e brilho das estrelas */
 @keyframes fall {
@@ -1003,7 +1008,7 @@ small {
 /* Estilo do footer */
 footer {
     position: relative;
-    background-color: #1a0d3e;
+    background-color: #521945;
     color: #ffffff;
     text-align: center;
     padding: 20px;
@@ -1015,7 +1020,7 @@ footer {
 
 .social-icon {
     margin: 0 10px;
-    color: #FE59BB;
+    color: #F40179;
     font-size: 24px;
     transition: color 0.3s;
     text-decoration: none;
@@ -1073,18 +1078,30 @@ footer {
 
 /* Centraliza a imagem dentro do contêiner HEADER-LOO WEBPACKED */
 .image-center {
-    text-align: center;
-    /* Centraliza o conteúdo dentro do contêiner */
-    margin-top: 20px;
-    /* Espaçamento superior, ajuste conforme necessário */
+    text-align: center; /* Centraliza o conteúdo dentro do contêiner */
+    margin-top: 20px; /* Espaçamento superior, ajuste conforme necessário */
+    margin-bottom: 10px; /* Ajusta a margem inferior para diminuir o espaço abaixo da imagem */
+    animation: pulse 5s ease-in-out infinite; /* Adiciona a animação de pulsação */
 }
-.header-logo {
-    background-image: url('./img/header-logo.svg'); /* Ajuste o caminho conforme necessário */
-  }
+
+/* Define a animação de pulsação */
+@keyframes pulse {
+    0% {
+        transform: scale(1.1); /* Tamanho normal */
+    }
+    50% {
+        transform: scale(1.35); /* Aumenta 30% */
+    }
+    100% {
+        transform: scale(1); /* Retorna ao tamanho normal */
+    }
+}
+
+
   
 
 .image-center img {
-    max-width: 60%;
+    max-width: 40%;
     /* Garante que a imagem não ultrapasse o contêiner */
     height: auto;
     /* Mantém a proporção da imagem */
@@ -1328,10 +1345,47 @@ footer {
     /* Define o estilo da fonte como normal */
 }
 
-/*LOGO SJ WEBPACKED*/
+/* LOGO SJ WEBPACKED */
 #logo {
-    width: 25%;
+    width: auto; /* Remove a largura fixa para permitir que a logo seja maior */
+    height: 130%; /* Faz a altura da logo ocupar 100% da altura da navbar */
+    max-height: 180px; /* Limita a altura da logo, para que ela não ultrapasse a altura da navbar */
+    position: absolute; /* A logo ficará fixa na navbar */
+    left: 0; /* A logo fica fixada no canto esquerdo */
+    top: 50%; /* Centraliza a logo verticalmente */
+    transform: translateY(-50%); /* Ajusta a logo para que fique perfeitamente centralizada verticalmente */
 }
+
+/* Centralizando os itens da navbar */
+.navbar-nav {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: relative; /* Garante que a centralização ocorra sem afetar o posicionamento da logo */
+}
+
+/* Responsividade */
+@media (max-width: 767px) {
+    #logo {
+        width: auto; /* Ajusta a largura da logo em dispositivos móveis */
+        height: 80px; /* Ajusta a altura da logo para ser menor em dispositivos móveis */
+        max-height: 100px; /* Limita a altura máxima da logo em dispositivos móveis */
+    }
+}
+
+@media (max-width: 480px) {
+    #logo {
+        width: auto; /* Ajusta a largura da logo em telas menores */
+        height: 80px; /* Logo ainda menor em dispositivos com telas muito pequenas */
+        max-height: 100px; /* Limita a altura máxima da logo em dispositivos menores */
+    }
+}
+
+
+
+
+
+
 .logo-sj {
     background-image: url('./img/logoSJ.svg'); /* Ajuste o caminho conforme necessário */
   }

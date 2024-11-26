@@ -1,0 +1,147 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Presentes - XV Sophia Justino</title><link rel="preconnect" href="https://example.com"><link rel="dns-prefetch" href="https://example.com"><link rel="preload" href="important-resource.js" as="script"><link rel="icon" type="image/png" href="https://i.ibb.co/2ZqxTJg/favicon.png"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"><link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet"><link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"><link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Poppins:ital,wght@0,100..900;1,100..900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Spectral:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet"><link rel="stylesheet" href="Presentstyles.css"><script defer="defer" src="presentes.js"></script><link href="presentesstyles.css" rel="stylesheet"></head><body><header><nav id="navb" class="navbar navbar-expand-md navbar-light fixed-top"><div class="container"><a href="/" class="d-flex navbar-brand"><img id="logo" src="./img/logoSJ.svg" class="img-fluid-logo" alt="brand"> </a><button aria-controls="responsive-navbar-nav" type="button" aria-label="Toggle navigation" class="navbar-toggler collapsed" id="navbar-toggler"><span></span> <span></span> <span></span></button><div class="navbar-collapse collapse" id="responsive-navbar-nav"><div class="ms-auto navbar-nav"><div class="nav-item"><a class="nav-link" href="/home"><i class="fa-solid fa-home" style="color: #FE59BB;"></i> Home</a></div><div class="nav-item"><a class="nav-link" href="/presentes"><i class="fa-solid fa-gift" style="color: #FE59BB;"></i> Presentes</a></div><div class="nav-item"><a class="nav-link" href="/recados"><i class="fa-solid fa-envelope" style="color: #FE59BB;"></i> Recados</a></div><div class="nav-item"><a class="nav-link" href="/rsvp"><i class="fa-solid fa-calendar-check" style="color: #FE59BB;"></i> RSVP</a></div><div class="nav-item"><a class="nav-link" href="/fotos"><i class="fa-solid fa-images" style="color: #FE59BB;"></i> Fotos</a></div></div></div></div></nav></header><br><br><br><br><div class="image-center"><img src="https://i.ibb.co/wJxxpyt/xv-sophia.png" alt="Imagem Sophia"><br><br></div><div class="introducao-secao"><h2 class="introducao-titulo"><i class="fas fa-gift"></i> Lista de presentes virtuais</h2><p class="introducao-paragrafo">Deixei algumas sugestões de mimos para quem desejar me presentear. Quem desejar me presentear de outra maneira tenho PIX: ️ 12013202679 (Sophia Justino).</p><p class="introducao-paragrafo"><br>Sugestões de tamanhos:<br><i class="fas fa-tshirt"></i><b> Blusa TAM: PP/P</b><br><i class="fas fa-shoe-prints"></i> <b>Sapato: 35/36</b><br></p></div><section class="preco-secao"><div class="form-group"><div class="controls"><select name="precos" class="form-control input-sm" id="preco-filtro"><option value="">ㅤ ㅤFiltro de valoresㅤ</option><option value="0-50">Menos que R$50,00</option><option value="50-100">Entre R$50,00 e R$100,00</option><option value="100-200">Entre R$100,00 e R$200,00</option><option value="200-500">Entre R$200,00 e R$500,00</option><option value="500-1000">Entre R$500,00 e R$1000,00</option><option value="1000-0">Mais que R$1000,00</option></select></div></div></section><div class="molduras-orbita" id="molduras-container"></div><script>// Dados dos itens e links de pagamento
+        const itens = [
+            { nome: "Blush Líquido Rare Beauty Soft Pinch", preco: 170 },
+            { nome: "Maybelline NY Corretivo Líquido Eraser Age Rewind", preco: 70 },
+            { nome: "Mousse Hidratante Desodorante Egeo Dolce Merengue", preco: 70 },
+            { nome: "Anel Life Cupido Coração Prata 925 Vivara", preco: 140 },
+            { nome: "Bolsa Carteira Matelassê Azul Claro Alça Transversal", preco: 140 },
+            { nome: "Cartão Presente Zara (Físico)", preco: 150 },
+            { nome: "Kit Glosslicious Fran by Franciny", preco: 90 },
+            { nome: "Saia Candy Fiozato", preco: 190 },
+            { nome: "Top Aurora Fiozato", preco: 240 },
+            { nome: "Vestido Lazuli Fiozato", preco: 330 },
+            { nome: "Máscara para Cílios Super Bold Niina Secrets", preco: 50 },
+            { nome: "Kit Pincéis para Olhos Essenciais Niina Secrets", preco: 70 },
+            { nome: "Cota de Viagem", preco: 50 },
+            { nome: "Sorvetinho no Calor", preco: 30 },
+            { nome: "Cartão Presente Sephora", preco: 70 },
+            { nome: "Combo Nécessaire e Creme Mãos Capim-Limão", preco: 50 },
+            { nome: "Roupão Microfibra Rosa", preco: 60 },
+            { nome: "Fone de Ouvido JBL", preco: 180 },
+            { nome: "Visita Arena MRV", preco: 60 },
+            { nome: "Passeio no Shopping", preco: 40 },
+            { nome: "Passeio no Parque", preco: 50 },
+            { nome: "Cota de viagem", preco: 60 },
+            { nome: "Bioré Make Up Remover - Óleo Demaquilante", preco: 60 },
+            { nome: "Café da Manhã", preco: 50 },
+            { nome: "Luminária Art House Led Acrílico", preco: 50 },
+            { nome: "Chinelo Havaianas", preco: 50 },
+            { nome: "Biquíni", preco: 100 },
+            { nome: "Rodízio de Pizza", preco: 50 },
+            { nome: "Cinema + Pipoca", preco: 60 },
+            { nome: "Carregador Portátil Power Bank", preco: 60 },
+            { nome: "Cartão Presente Shein", preco: 90 },
+            { nome: "Hidratante Labial Cuide-se Bem", preco: 40 },
+            { nome: "Tint Bt Grace Bruna Tavares", preco: 40 },
+            { nome: "Camisa Galo", preco: 200 },
+            { nome: "Caderno Disco Iscool A5", preco: 50 },
+            { nome: "Agenda 2025 Cicero", preco: 100 },
+            { nome: "Máscara Facial Cuide-se Bem Melancia", preco: 60 },
+            { nome: "Relógio Decorativo de Mesa", preco: 40 },
+            { nome: "Cacau Show Caixa Gourmet", preco: 150 },
+            { nome: "Gloss Kiko Milano", preco: 140 },
+            { nome: "Escova de Cabelo Tangle Teezer Mini", preco: 60 },
+            { nome: "Esfoliante Corporal Lola Chapada Que Já Foi Mar", preco: 90 },
+            { nome: "Kit Presente Cuide-se Bem Obrigadx", preco: 40 },
+            { nome: "Kit Gel De Limpeza La Roche Posay Effaclar", preco: 70 },
+            { nome: "Bare Vanilla Shimmer Body Splash", preco: 150 },
+            { nome: "Kit Sallve", preco: 150 },
+            { nome: "Bala Fini no Shopping", preco: 30 },
+            { nome: "Cartão Presente IFood", preco: 40 }
+        ];
+    
+        const links = {
+            30: "https://mpago.la/2MZkoQE",
+            40: "https://mpago.la/19wpUGe",
+            50: "https://mpago.la/2FqXoZK",
+            60: "https://mpago.la/25g6Z5Z",
+            70: "https://mpago.la/1PhKsig",
+            90: "https://mpago.la/2Zs87BY",
+            100: "https://mpago.la/2KYQsUb",
+            140: "https://mpago.la/2DUijRn",
+            150: "https://mpago.la/2UU6moN",
+            170: "https://mpago.la/2KQX123",
+            180: "https://mpago.la/2sZpCKk",
+            190: "https://mpago.la/11ogUD2",
+            200: "https://mpago.la/12sU2iM",
+            240: "https://mpago.la/2FyGzdW",
+            330: "https://mpago.la/1m4mcan"
+        };
+    
+        // Função para gerar a estrutura das molduras
+        function gerarMolduras() {
+            const container = document.getElementById('molduras-container');
+            const quantidade = itens.length; // Total de molduras
+    
+            for (let i = 0; i < quantidade; i++) {
+                const item = itens[i];
+                const link = links[item.preco] || "#";
+    
+                // Cria o elemento da moldura
+                const moldura = document.createElement('div');
+                moldura.classList.add('moldura');
+                moldura.setAttribute('data-price', item.preco);
+    
+                // Adiciona o conteúdo à moldura
+                moldura.innerHTML = `
+                    <img src="img/${i + 1}.png" alt="Imagem do item ${item.nome}">
+                    <div class="item-info">R$${item.preco},00</div>
+                    <div class="botao-container">
+                        <div>${item.nome}</div>
+                        <a href="${link}" class="comprar-btn" target="_blank">Presentear</a>
+                    </div>
+                `;
+    
+                // Adiciona a moldura ao container
+                container.appendChild(moldura);
+            }
+        }
+    
+        // Chama a função para gerar as molduras
+        gerarMolduras();
+    
+        // Função para lidar com o clique no botão de compra
+        function comprar(btn) {
+            // Obtém o container da moldura
+            const moldura = btn.closest('.moldura');
+    
+            // Seleciona o container do botão e o preço
+            const botaoContainer = moldura.querySelector('.botao-container');
+            const preco = botaoContainer.querySelector('div:not(a)');
+    
+            // Remove o preço e altera o botão
+            preco.style.display = 'none'; // Oculta o preço
+            btn.classList.add('comprado'); // Aplica a classe 'comprado'
+            btn.textContent = 'Esse item já foi presenteado 🎉'; // Altera o texto do botão
+            btn.style.width = 'auto'; // Ajusta a largura do botão para o conteúdo
+            btn.style.backgroundColor = '#4CAF50'; // Verde
+            btn.style.color = 'white'; // Texto branco
+            btn.style.border = 'none'; // Remove borda
+        }
+    
+        document.addEventListener('DOMContentLoaded', function () {
+            const precoFiltro = document.getElementById('preco-filtro');
+            const molduras = document.querySelectorAll('.moldura');
+    
+            precoFiltro.addEventListener('change', function () {
+                const selectedValue = this.value;
+                let minPrice = 0;
+                let maxPrice = Infinity;
+    
+                if (selectedValue) {
+                    const prices = selectedValue.split('-');
+                    minPrice = parseFloat(prices[0]);
+                    maxPrice = parseFloat(prices[1]) || Infinity;
+                }
+    
+                molduras.forEach(function (moldura) {
+                    const itemPrice = parseFloat(moldura.getAttribute('data-price'));
+    
+                    if (itemPrice >= minPrice && itemPrice <= maxPrice) {
+                        moldura.style.display = 'flex';
+                    } else {
+                        moldura.style.display = 'none';
+                    }
+                });
+            });
+        });</script><br><br><br><br><br><footer><a href="https://www.linkedin.com/in/rafcsilva/" class="social-icon linkedin-icon"><i class="fab fa-linkedin"></i> </a><a href="https://github.com/rafcsx" class="social-icon github-icon"><i class="fab fa-github"></i> </a><a href="https://wa.me/5531996084046" class="social-icon whatsapp-icon"><i class="fab fa-whatsapp"></i> </a><span class="name">developed by Rafael Correia™</span> <a href="https://www.planalto.gov.br/ccivil_03/leis/l9610.htm" class="copyright" target="_blank">© All rights reserved 2024</a></footer></body></html>
